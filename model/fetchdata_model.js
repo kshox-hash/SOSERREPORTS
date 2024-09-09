@@ -6,21 +6,25 @@ class FetchDataModel {
 
     async fecthAllData(){
         const query = db.collection('reporte');
-
         try {
-            //query all data from db;
-            const querySnapshot = await query.get();
-
-            if(querySnapshot){
-                return querySnapshot;
+            const querySnapShot = await query.get();
+    
+            if (!querySnapShot.empty) {
+                // Asegúrate de devolver el objeto correctamente
+                const docs = querySnapShot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+                return docs;
             } else {
-                throw new Error('No data fetching')
+                throw new Error('No data found in the collection');
             }
-
-        } catch(err){
-            console.log(err.message)
-
+    
+        } catch (err) {
+            console.error('Error fetching data:', err);
+            throw err;
         }
+       
     }
 }
 
