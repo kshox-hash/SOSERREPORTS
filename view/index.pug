@@ -15,9 +15,9 @@ html(lang='en')
     link(href='https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Roboto+Mono:wght@100..700&family=Roboto:wght@100;300;400;500;700;900&display=swap', rel='stylesheet')
 
     //- Scripts necesarios
-    script(tytype="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js")
+    script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js')
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz', crossorigin='anonymous')
-  
+
   body
     .container
       .row
@@ -33,66 +33,46 @@ html(lang='en')
             h4 grafico historia
             button.btn.btn-dark#btnchart(type='button') Obtener datos
             canvas#chart
-    
+
     .container
       .row
-        .col.ranking-section
+        .col.clasificacion-section
           p Ranking producto
-          ul.list-group
-            li.list-group-item.d-flex.justify-content-between.align-items-center
-              | A list item
-              span.badge.text-bg-dark.rounded-pill 14
 
-            li.list-group-item.d-flex.justify-content-between.align-items-center
-              | A second list item
-              span.badge.text-bg-dark.rounded-pill 2
-
-            li.list-group-item.d-flex.justify-content-between.align-items-center
-              | A third list item
-              span.badge.text-bg-dark.rounded-pill 1
-         
-        .col.ranking-section
+        .col.proveedor-section
           p ranking producto
 
-        .col.ranking-section
+        .col.bodega-section#bodega-section
           p ranking bodega
 
     .container
       .row
-        .col-6
-          .filter-container
-            h4 Filtrar
-            p Seleccione rango de fechas
-            input#startDate.form-control.me-2(type='date')
-            input#endDate.form-control.me-2(type='date')
-            button#filterButton.btn.btn-dark(type='button') Filtrar
+        .col-6.filter-container
+          h4 Filtrar
+          p Seleccione rango de fechas
+          input#startDate.form-control.me-2(type='date')
+          input#endDate.form-control.me-2(type='date')
+          button#filterButton.btn.btn-dark(type='button') Filtrar
 
-            form#filterForm.mb-3
-              label(for='filterType', class='form-label', style='color: #000000;') Seleccionar Filtro
-              select#filterType.form-select
-                option(value='') Seleccione un filtro
-                option(value='Bodega') BODEGA
-                option(value='Clasificacion') CATEGORIA
-                option(value='Razon') PROVEEDOR
-                option(value='ucrea') EJECUTIVO
+          form#filterForm.mb-3
+            label(for='filterType', class='form-label', style='color: #000000;') Seleccionar Filtro
+            select#filterType.form-select
+              option(value='') Seleccione un filtro
+              option(value='Bodega') BODEGA
+              option(value='Clasificacion') CATEGORIA
+              option(value='Razon') PROVEEDOR
+              option(value='ucrea') EJECUTIVO
 
-              #filterOptionsContainer.mb-3
-                label(for='filterOptions', class='form-label', style='color:#060606') Opciones del Filtro
-                select#filterOptions.form-select
-                  option(selected, value='') Seleccione una opción
-                  //- Las opciones se llenarán dinámicamente
+            #filterOptionsContainer.mb-3
+              label(for='filterOptions', class='form-label', style='color:#060606') Opciones del Filtro
+              select#filterOptions.form-select
+                option(selected, value='') Seleccione una opción
+                //- Las opciones se llenarán dinámicamente
 
-        .col-6
-          .graphic-input-section
-            canvas#graphic-form
-
-                
-
-
-
+        .col-6.graphic-input-section
+          canvas#graphic-form
 
     //- Scripts personalizados
-    script(type='module', src='js/fetchdata.js')
-    script(type='module', src='js/graphichistory.js')
-    script(type='module', src='js/graphicinput.js')
-
+    script(type='module', src='/js/fetchdata.js')
+    script(type='module', src='/js/graphicHistory.js')
+    script(type='module', src='/js/rankingHistory.js')
