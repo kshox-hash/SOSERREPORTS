@@ -4,7 +4,7 @@ const db = require('../database/firebase');
 class FetchDataModel {
 
     async fecthAllData(){
-        const query = db.collection('reporte').limit(15);
+        const query = db.collection('reporte')
         try {
             const querySnapShot = await query.get();
     

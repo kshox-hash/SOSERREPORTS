@@ -28,7 +28,7 @@ btnChart.addEventListener('click', function(){
         getDataForRanking(element)
 
         const datesGroupedByDate = element.reduce((acc, curr) => {
-            const date = new Date(curr.fecha._seconds * 1000)
+            const date = new Date(curr.fecha)
 
             const month = date.getMonth();
             if(!acc[month]){

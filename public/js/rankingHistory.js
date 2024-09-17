@@ -1,17 +1,18 @@
 const bodegaId = document.getElementById('bodega-section');
-const clasificacionId = document.getElementById('chart');
-const ucrea = document.getElementById('chart');
+const clasificacionId = document.getElementById('proveedor-section');
+const ucreaId = document.getElementById('clasificacion-section');
 
 export  function  getDataForRanking(data){
 const types = ['Bodega', 'Clasificacion', 'ucrea'];
 
 for(let i=0; i<types.length; i++){
+    let type = types[i]
     let dataInGroup = data.reduce((acc, curr) => {
-        let type = curr[types[i]];
-        if(!acc[type]){
-            acc[type] = []
+        let value = curr[type];
+        if(!acc[value]){
+            acc[value] = 1
         } else {
-            acc[type]++
+            acc[value]++
         }
     
         return acc
@@ -20,25 +21,34 @@ for(let i=0; i<types.length; i++){
     const sortedData = Object.entries(dataInGroup)
     .sort((a, b) => b[1] - a[1]); 
 
+    console.log(sortedData)
+
     const top5 = sortedData.slice(0, 5);
+
+   
+    let listItems = top5.map(([key, value], index) => 
+        `<li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class=" me-auto">
+                <div">${index + 1}. ${key}</div>
+            </div>
+            <span class="badge text-bg-dark rounded-pill">${value}</span>
+        </li>`
+    ).join('');
 
     switch (type) {
         case 'Bodega':
-            bodegaId.innerHTML = `<h3>Top 5 Bodegas:</h3><ul>${top5.map(([key, value]) => `<li>${key}: ${value}</li>`).join('')}</ul>`;
+            bodegaId.innerHTML = `<ol class="list-group ">${listItems}</ol>`;
             break;
         case 'Clasificacion':
-            clasificacionId.innerHTML = `<h3>Top 5 Clasificaciones:</h3><ul>${top5.map(([key, value]) => `<li>${key}: ${value}</li>`).join('')}</ul>`;
+            clasificacionId.innerHTML = `<ol class="list-group ">${listItems}</ol>`;
             break;
         case 'ucrea':
-            ucreaId.innerHTML = `<h3>Top 5 Ucreas:</h3><ul>${top5.map(([key, value]) => `<li>${key}: ${value}</li>`).join('')}</ul>`;
+            ucreaId.innerHTML = `<ol class="list-group ">${listItems}</ol>`;
             break;
         default:
             console.log('Tipo no reconocido');
     }
-
-    
-
-    
+  
 }
 
     
