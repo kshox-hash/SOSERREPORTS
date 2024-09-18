@@ -217,46 +217,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   
     function logDocumentDetails(data) {
-      const reasonCounts = {};
-      let totalDocuments = 0;
-  
-      // Contar la cantidad de documentos por Razón
-      data.forEach(item => {
-          const documentos = item.documentos || [];
-          totalDocuments += documentos.length;
-  
-          documentos.forEach(doc => {
-              const razon = doc.Razon || 'N/A'; // Asegurarse de que Razon no sea undefined
-              if (!reasonCounts[razon]) {
-                  reasonCounts[razon] = 0;
-              }
-              reasonCounts[razon]++;
-          });
-      });
-  
-      // Generar el HTML para el log
-      let logHTML = `
-          <p>Total de documentos: ${totalDocuments}</p>
-          <ul class="list-group">
-      `;
-  
-      for (const [razon, count] of Object.entries(reasonCounts)) {
-          logHTML += `
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                  ${razon}
-                  <span class="badge text-bg-success rounded-pill">${count}</span>
-              </li>
-          `;
-      }
-  
-  
-      logHTML += `</ul>`;
-  
-      // Mostrar el log en el contenedor adecuado
-      
+        const reasonCounts = {};
+        let totalDocuments = 0;
     
-      document.getElementById('logContainer').innerHTML = logHTML;
-  }
+        // Contar la cantidad de documentos por Razón
+        data.forEach(item => {
+            const documentos = item.documentos || [];
+            totalDocuments += documentos.length;
+    
+            documentos.forEach(doc => {
+                const razon = doc.Razon || 'N/A'; // Asegurarse de que Razon no sea undefined
+                if (!reasonCounts[razon]) {
+                    reasonCounts[razon] = 0;
+                }
+                reasonCounts[razon]++;
+            });
+        });
+    
+        // Convertir el objeto reasonCounts a un array de pares [razon, count]
+        const sortedReasons = Object.entries(reasonCounts)
+            .sort((a, b) => b[1] - a[1]); // Ordenar de mayor a menor
+    
+        // Generar el HTML para el log
+        let logHTML = `
+            <p>Total de documentos: ${totalDocuments}</p>
+            <ul class="list-group">
+        `;
+    
+        sortedReasons.forEach(([razon, count]) => {
+            logHTML += `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${razon}
+                    <span class="badge text-bg-success rounded-pill">${count}</span>
+                </li>
+            `;
+        });
+    
+        logHTML += `</ul>`;
+    
+        // Mostrar el log en el contenedor adecuado
+        document.getElementById('logContainer').innerHTML = logHTML;
+    }
+    
   
   let tableData = [];
   
@@ -353,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });  var ctx = document.getElementById('myAreaChart').getContext('2d');
   
   var myLineChart = new Chart(ctx, {
-      type: 'line', // Tipo de gráfico
+      type: 'bar', // Tipo de gráfico
       data: {
           labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], // Etiquetas del eje X
           datasets: [{
