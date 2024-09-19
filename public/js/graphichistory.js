@@ -1,9 +1,12 @@
+
+
+
 import { fetchDataToDb }from '/js/fetchdata.js'
 import { getDataForRanking } from '/js/rankingHistory.js';
 
 
 document.addEventListener('DOMContentLoaded', function(){
-const btnChart = document.getElementById('btnchart');
+
 const labels = ['Enero', 'Febrero', 'Marzo', 'Abril','mayo', 'junio', 'julio', "agosto", 'septiembre', 'octubre', 'noviembre', 'diciembre']
 const graph = document.getElementById('chart').getContext('2d');
 //create graphic and pass data;
@@ -20,9 +23,10 @@ const dataGraphic = {
 const config = {
     type: 'bar',
     data: dataGraphic,
+
 };
 
-btnChart.addEventListener('click', function(){
+
     const data = fetchDataToDb()
     data.then(element => {
         getDataForRanking(element)
@@ -48,7 +52,6 @@ btnChart.addEventListener('click', function(){
     })
     .catch(err => console.log(err));
 
-});
 
 function createArrayToGraphic(dataGraphic){
 

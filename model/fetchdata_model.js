@@ -6,7 +6,7 @@ class FetchDataModel {
     async fecthAllData(){
         const query = db.collection('reporte')
         try {
-            const querySnapShot = await query.get();
+            const querySnapShot = await query.limit(1).get();
     
             if (!querySnapShot.empty) {
                 const docs = querySnapShot.docs.map(doc => ({

@@ -31,7 +31,7 @@ for(let i=0; i<types.length; i++){
             <div class=" me-auto">
                 <div">${index + 1}. ${key}</div>
             </div>
-            <span class="badge text-bg-dark rounded-pill">${value}</span>
+            <span class="badge text-bg-primary rounded-pill">${value}</span>
         </li>`
     ).join('');
 

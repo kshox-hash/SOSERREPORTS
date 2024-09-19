@@ -2,166 +2,151 @@
 body {
     margin: 0;
     padding: 20px;
-    background-color: #1F1F1F; /* Fondo oscuro */
-    color: #E0E0E0; /* Texto claro para contraste */
+    background-color: #0a0a0a; /* Fondo azul oscuro */
+    color: #E0E0E0; /* Texto claro */
     font-family: 'Roboto', sans-serif; /* Tipografía general */
 }
 
 /* Estilo para el encabezado */
 h4 {
     font-family: 'Roboto', sans-serif;
-    color: #E0E0E0; /* Color de texto claro para el encabezado */
+    color: #F5F5DC; /* Color hueso para el encabezado */
 }
 
 /* Estilo para la sección de título */
 .title-history-section {
-    background-color: #2C2C2C; /* Fondo oscuro para la sección de título */
+    background-color: #0a0a0a; /* Fondo azul más claro */
     height: 120px;
-    color: #E0E0E0; /* Color de texto claro */
+    color: #F5F5DC; /* Texto color hueso */
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 20px; /* Espaciado inferior para separar de otras secciones */
+    margin-bottom: 20px; /* Espaciado inferior */
+
 }
 
 /* Estilo para la sección de gráficos */
 .graphic-history-section {
-    background-color: #2C2C2C; /* Fondo oscuro para la sección de gráficos */
+    background-color: #0a0a0a; /* Fondo azul oscuro */
     padding-top: 20px;
-    margin-bottom: 20px; /* Espaciado inferior para separar de otras secciones */
-    color: #E0E0E0; /* Color de texto claro */
+    margin-bottom: 20px; /* Espaciado inferior */
+    color: #E0E0E0; /* Texto claro */
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil */
 }
 
 /* Estilo para las secciones de ranking */
 .ranking-section {
-    background-color: #2C2C2C; /* Fondo oscuro de la sección */
+    background-color: #171717; /* Fondo azul más claro */
     padding: 20px; /* Espaciado interno */
-    margin-bottom: 20px; /* Espaciado inferior para separar las secciones */
+    margin-bottom: 20px; /* Espaciado inferior */
     border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
     font-family: 'Roboto', sans-serif; /* Tipografía */
-    min-height: 150px; /* Altura mínima para las secciones */
-    overflow-y: auto; /* Permite el desplazamiento vertical si hay mucho contenido */
+    min-height: 150px; /* Altura mínima */
     text-align: center; /* Centra el texto dentro de la sección */
 }
 
-/* Estilo específico para cada una de las secciones de ranking */
+/* Estilo específico para las secciones de ranking */
 .bodega-section, .clasificacion-section, .proveedor-section {
-    background-color: #2C2C2C; /* Fondo oscuro para las secciones de ranking */
+    background-color: #171717; /* Fondo azul oscuro */
     height: 320px;
     padding: 15px; /* Espaciado interno */
     border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
-}
-
-/* Centrando los títulos de las secciones de ranking */
-.bodega-section h4, .clasificacion-section h4, .proveedor-section h4 {
-    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil */
 }
 
 .proveedor-section {
-    margin-right: 10px;
     margin-left: 10px;
+    margin-right: 10px;
 }
 
 /* Estilo para el contenedor del filtro */
 .filter-container {
-    background-color: #3C3C3C; /* Fondo gris oscuro */
+    background-color: #171717; /* Fondo azul más claro */
+    color: #E0E0E0;
     padding: 20px;
-    margin-top: 20px; /* Espaciado superior para separar del contenido anterior */
+    margin-top: 20px; /* Espaciado superior */
     border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para dar profundidad */
-    width: 100%; /* Asegúrate de que el recuadro de filtro ocupe todo el ancho disponible */
-    box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave */
 }
 
 /* Estilo para el formulario del filtro */
 #filterForm .form-label {
-    color: #E0E0E0; /* Color del texto de las etiquetas */
+    color: #F5F5DC !important; /* Color hueso para las etiquetas */
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 0.5rem; /* Espaciado inferior para separar las etiquetas del contenido */
+    margin-bottom: 0.5rem; /* Espaciado inferior */
 }
 
 /* Estilo para los selects */
 .form-select {
-    background-color: #2C2C2C; /* Fondo oscuro */
+    background-color: #171717; /* Fondo azul oscuro */
     color: #E0E0E0; /* Texto claro */
     border: 1px solid #4A4A4A; /* Borde oscuro */
     border-radius: 4px; /* Bordes redondeados */
     padding: 8px; /* Espaciado interno */
-    width: 100%; /* Asegúrate de que el select ocupe todo el ancho disponible */
-    box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+    width: 100%; /* Ancho completo */
     margin-bottom: 1rem; /* Espaciado inferior */
 }
 
 /* Estilo para los inputs de fecha y botones */
 input[type="date"], button {
-    background-color: #2C2C2C; /* Fondo oscuro */
+    background-color: #171717; /* Fondo azul oscuro */
     color: #E0E0E0; /* Texto claro */
     border: 1px solid #4A4A4A; /* Borde oscuro */
     border-radius: 4px; /* Bordes redondeados */
     padding: 8px; /* Espaciado interno */
-    width: 100%; /* Asegúrate de que los inputs ocupen todo el ancho disponible */
-    box-sizing: border-box; /* Incluye el padding y border en el ancho total */
+    width: 100%; /* Ancho completo */
 }
 
 /* Estilo para el botón de filtro */
 button#filterButton {
-    background-color: #5C5C5C; /* Color gris oscuro */
+    background-color: #263A50; /* Color azul claro */
     border: none; /* Sin borde */
-    color: #E0E0E0; /* Texto claro */
+    color: #F5F5DC; /* Texto color hueso */
     cursor: pointer; /* Cambia el cursor a pointer */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
 }
 
 /* Estilo para el botón de exportar */
 button#exportButton {
-    background-color: #4CAF50; /* Color verde para el botón de exportar */
     border: none; /* Sin borde */
-    color: #E0E0E0; /* Texto claro */
+    color: #F5F5DC; /* Texto color hueso */
     cursor: pointer; /* Cambia el cursor a pointer */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 4px; /* Bordes redondeados */
 }
 
-/* Ocultar el contenedor del filtro adicional por defecto */
-#additionalFilterContainer {
-    display: none;
-}
-
-/* Ajusta el color de fondo de las listas */
+/* Estilo para las listas */
 .list-group {
-    background-color: #2C2C2C; /* Fondo oscuro para la lista */
+    background-color: #171717; /* Fondo azul oscuro */
     border: none; /* Elimina el borde de la lista */
 }
 
-/* Ajusta el color del fondo de los elementos de la lista */
+/* Estilo para los elementos de la lista */
 .list-group-item {
-    background-color: #2C2C2C; /* Fondo oscuro para los elementos de la lista */
-    padding: 10px; /* Ajusta el padding según sea necesario */
-    color: #E0E0E0; /* Color de texto claro para los elementos */
-}
-
-/* Ajusta el color de las etiquetas (badges) */
-.badge {
-    background-color: #5C5C5C; /* Color gris para el badge */
-    color: #E0E0E0; /* Texto claro para el badge */
+    background-color: #171717; /* Fondo azul oscuro */
+    padding: 10px; /* Espaciado interno */
+    color: #E0E0E0; /* Color de texto claro */
 }
 
 /* Estilo para el contenedor del log */
 #logContainer {
     max-height: 400px; /* Ajusta según tus necesidades */
-    overflow-y: auto; /* Permite el desplazamiento vertical si el contenido excede el máximo de altura */
+    height: 320px;
+    overflow-y: auto; /* Permite el desplazamiento vertical */
     margin: 10px;
-    height: 350px;
-    padding: 20px; /* Espacio interno para evitar que el contenido toque los bordes */
-    border-radius: 4px; /* Bordes redondeados para el contenedor */
-    background-color: #2C2C2C; /* Fondo oscuro para el contenedor del log */
-    color: #E0E0E0; /* Texto claro para el contenedor del log */
+    padding: 20px; /* Espacio interno */
+    border-radius: 4px; /* Bordes redondeados */
+    background-color: #171717; /* Fondo azul más claro */
+    color: #E0E0E0; /* Texto claro */
 }
 
 /* Otros estilos adicionales */
@@ -176,7 +161,7 @@ button#exportButton {
     display: none;
     font-size: 20px;
     font-weight: bold;
-    color: #666666; /* Color gris para el texto de carga */
+    color: #4A90E2; /* Color azul claro para el texto de carga */
 }
 
 .ranking-container {
@@ -187,7 +172,7 @@ button#exportButton {
 .ranking-title {
     font-size: 20px;
     font-weight: bold;
-    color: #E0E0E0; /* Texto claro para el título del ranking */
+    color: #F5F5DC; /* Texto color hueso para el título del ranking */
     margin-bottom: 10px;
     text-align: center; /* Centra el texto del título del ranking */
 }
@@ -203,7 +188,7 @@ button#exportButton {
 }
 
 .wrapper {
-    background-color: #2C2C2C; /* Fondo oscuro */
+    background-color: #171717; /* Fondo azul oscuro */
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -226,7 +211,7 @@ button#exportButton {
     margin: 0; /* Elimina el margen superior e inferior */
 }
 
-canvas#myAreaChart {
-    height: 400px;
-
+#myAreaChart {
+    background-color: #0a0a0a !important; /* Fondo azul oscuro para el gráfico */
 }
+
