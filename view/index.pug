@@ -21,73 +21,72 @@ html(lang='en')
             h1 SOSER REPORTS
             p Reporte semanal de productos de órdenes de compras faltantes.
 
-    .container
-      .row
-        .graphic-history-section
-          .col-xl-12
-            p.mb-5 Gráfico productos faltantes por mes
-            canvas#chart
+      .container
+        .row
+          .graphic-history-section
+            .col-xl-12
+              video#video(src='/assets/robot.mp4', width='100%', autoplay muted playsinline)
+              canvas#chart(style='display: none;') // El gráfico estará oculto inicialmente
 
-    .container
-      .row
-        .col.clasificacion-section
-          h4 Ranking por clasificación
-          #clasificacion-section
+          .col.clasificacion-section
+            h4 Ranking por clasificación
+            #clasificacion-section
 
-        .col.proveedor-section
-          h4 Ranking por proveedor
-          #proveedor-section
+          .col.proveedor-section
+            h4 Ranking por proveedor
+            #proveedor-section
 
-        .col.bodega-section
-          h4 Ranking por bodega
-          #bodega-section
+          .col.bodega-section
+            h4 Ranking por bodega
+            #bodega-section
 
-    .container
-      .row
-        .col-12
-          .filter-container
-            h4 Filtrar
-            p Seleccione rango de fechas
-            .d-flex.align-items-center.mb-3
-              input#startDate.form-control.me-2(type='date')
-              input#endDate.form-control.me-2(type='date')
-              button#filterButton.btn.btn-primary(type='button') Filtrar
-            form#filterForm
-              .mb-3
-                label(for='filterType', class='form-label') Seleccionar Filtro
-                select#filterType.form-select
-                  option(value='') Seleccione un filtro
-                  option(value='Bodega') BODEGA
-                  option(value='Clasificacion') CATEGORIA
-                  option(value='Razon') PROVEEDOR
-                  option(value='ucrea') EJECUTIVO
-              #filterOptionsContainer.mb-3
-                label(for='filterOptions', class='form-label') Opciones del Filtro
-                select#filterOptions.form-select
-                  option(selected, value='') Seleccione una opción
-              #additionalFilterContainer.mb-3.mt-3(style='display: none;')
-                label(for='additionalFilter', class='form-label') Filtrar por proveedor
-                select#additionalFilter.form-select
-                  option(value='') Seleccione una opción
-                  option(value='ALIMENTOS VIDA ESTABLE S.A') ALIMENTOS VIDA ESTABLE S.A
-                  //- Resto de opciones
+      .container
+        .row
+          .col-12
+            .filter-container
+              h4 Filtrar
+              p Seleccione rango de fechas
+              .d-flex.align-items-center.mb-3
+                input#startDate.form-control.me-2(type='date')
+                input#endDate.form-control.me-2(type='date')
+                button#filterButton.btn.btn-primary(type='button') Filtrar
+              form#filterForm
+                .mb-3
+                  label(for='filterType', class='form-label') Seleccionar Filtro
+                  select#filterType.form-select
+                    option(value='') Seleccione un filtro
+                    option(value='Bodega') BODEGA
+                    option(value='Clasificacion') CATEGORIA
+                    option(value='Razon') PROVEEDOR
+                    option(value='ucrea') EJECUTIVO
+                #filterOptionsContainer.mb-3
+                  label(for='filterOptions', class='form-label') Opciones del Filtro
+                  select#filterOptions.form-select
+                    option(selected, value='') Seleccione una opción
+                #additionalFilterContainer.mb-3.mt-3(style='display: none;')
+                  label(for='additionalFilter', class='form-label') Filtrar por proveedor
+                  select#additionalFilter.form-select
+                    option(value='') Seleccione una opción
+                    option(value='ALIMENTOS VIDA ESTABLE S.A') ALIMENTOS VIDA ESTABLE S.A
 
-    .container
-      .row
-        .col-md-6
-          .chart-container.mt-3
-            canvas#myAreaChart
-        .col-md-6
-          .log-container#logContainer.mt-3
-            h4 Datos obtenidos por consulta
-            // Aquí se agregarán los resúmenes de datos
-          button.btn.btn-success.mt-3.mb-2#exportButton Convertir excel
+      .container
+        .row
+          .col-md-6
+            .chart-container.mt-3
+              // El canvas se muestra después del video
+              canvas#myAreaChart
+          .col-md-6
+            .log-container#logContainer.mt-3
+              h4 Datos obtenidos por consulta
+              // Aquí se agregarán los resúmenes de datos
+            button.btn.btn-success.mt-3.mb-2#exportButton Convertir excel
 
-      .row.mt-4
-        .data-table-container#dataTableContainer
+        .row.mt-4
+          .data-table-container#dataTableContainer
 
     //- Scripts personalizados
     script(type='module', src='/js/fetchdata.js')
     script(type='module', src='/js/graphicHistory.js')
     script(type='module', src='/js/rankingHistory.js')
     script(type='module', src='/js/filterData.js')
+    

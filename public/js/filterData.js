@@ -264,56 +264,59 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Función para mostrar la tabla
   function displayTable(data) {
-      tableData = data;
-      const tableContainer = document.getElementById('dataTableContainer');
-  
-      // Crear la tabla HTML
-      let tableHTML = `
-          <table class="table table-striped table-bordered">
-              <thead>
-                  <tr>
-                      <th>Fecha</th>
-                      <th>Orden</th>
-                      <th>Bodega</th>
-                      <th>Clasificación</th>
-                      <th>Razón</th>
-                      <th>Ucrea</th>
-                      <th>Días perdidos</th>
-                      <th>productos faltantes</th>
-                  </tr>
-              </thead>
-              <tbody>
-      `;
-  
-      // Llenar la tabla con los datos
-      data.forEach(item => {
-          const fecha = item.fecha || 'N/A'; // Maneja valores undefined
-          const documentos = item.documentos || []; // Maneja valores undefined
-  
-          documentos.forEach(documento => {
-              tableHTML += `
-                  <tr>
-                      <td>${fecha}</td>
-                      <td>${documento.Orden}</td>
-                      <td>${documento.Bodega || 'N/A'}</td>
-                      <td>${documento.Clasificacion || 'N/A'}</td>
-                      <td>${documento.Razon || 'N/A'}</td>
-                      <td>${documento.ucrea || 'N/A'}</td>
-                      <td>${documento.dias_faltantes || 'N/A'}</td>
-                       <td>${documento.cantidad_productos_faltantes || 'N/A'}</td>
-                  </tr>
-              `;
-          });
-      });
-  
-      tableHTML += `
-          </tbody>
-      </table>
-      `;
-  
-      // Insertar la tabla en el contenedor
-      tableContainer.innerHTML = tableHTML;
-  }
+    const tableContainer = document.getElementById('dataTableContainer');
+
+    // Crear la tabla HTML
+    let tableHTML = `
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Orden</th>
+                    <th>Bodega</th>
+                    <th>Clasificación</th>
+                    <th>Razón</th>
+                    <th>Ucrea</th>
+                    <th>Días perdidos</th>
+                    <th>Productos faltantes</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+    // Llenar la tabla con los datos
+    data.forEach(item => {
+        const fecha = item.fecha || 'N/A';
+        const documentos = item.documentos || [];
+
+        documentos.forEach(documento => {
+            // Determina la clase de la fila según condiciones específicas
+            let rowClass = 'low-warning';
+            
+
+            tableHTML += `
+                <tr class="${rowClass}">
+                    <td>${fecha}</td>
+                    <td>${documento.Orden}</td>
+                    <td>${documento.Bodega || 'N/A'}</td>
+                    <td>${documento.Clasificacion || 'N/A'}</td>
+                    <td>${documento.Razon || 'N/A'}</td>
+                    <td>${documento.ucrea || 'N/A'}</td>
+                    <td>${documento.dias_faltantes || 'N/A'}</td>
+                    <td>${documento.cantidad_productos_faltantes || 'N/A'}</td>
+                </tr>
+            `;
+        });
+    });
+
+    tableHTML += `
+            </tbody>
+        </table>
+    `;
+
+    // Insertar la tabla en el contenedor
+    tableContainer.innerHTML = tableHTML;
+}
   
   function exportToExcel() {
       console.log(tableData);

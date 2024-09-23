@@ -51,11 +51,15 @@ h4 {
     font-family: 'Roboto', sans-serif; /* Tipografía */
     min-height: 150px; /* Altura mínima */
     text-align: center; /* Centra el texto dentro de la sección */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* Estilo específico para las secciones de ranking */
 .bodega-section, .clasificacion-section, .proveedor-section {
-    background-color: #171717; /* Fondo azul oscuro */
+    background-color: #0c0c0c; /* Fondo azul oscuro */
     height: 320px;
     padding: 15px; /* Espaciado interno */
     border-radius: 8px; /* Bordes redondeados */
@@ -69,7 +73,7 @@ h4 {
 
 /* Estilo para el contenedor del filtro */
 .filter-container {
-    background-color: #171717; /* Fondo azul más claro */
+    background-color: #210518; /* Fondo azul más claro */
     color: #E0E0E0;
     padding: 20px;
     margin-top: 20px; /* Espaciado superior */
@@ -86,7 +90,7 @@ h4 {
 
 /* Estilo para los selects */
 .form-select {
-    background-color: #171717; /* Fondo azul oscuro */
+    background-color: #180110; /* Fondo azul oscuro */
     color: #E0E0E0; /* Texto claro */
     border: 1px solid #4A4A4A; /* Borde oscuro */
     border-radius: 4px; /* Bordes redondeados */
@@ -97,7 +101,7 @@ h4 {
 
 /* Estilo para los inputs de fecha y botones */
 input[type="date"], button {
-    background-color: #171717; /* Fondo azul oscuro */
+    background-color: #180110; /* Fondo azul oscuro */
     color: #E0E0E0; /* Texto claro */
     border: 1px solid #4A4A4A; /* Borde oscuro */
     border-radius: 4px; /* Bordes redondeados */
@@ -145,7 +149,7 @@ button#exportButton {
     margin: 10px;
     padding: 20px; /* Espacio interno */
     border-radius: 4px; /* Bordes redondeados */
-    background-color: #171717; /* Fondo azul más claro */
+    background-color: #0c0c0c; /* Fondo azul más claro */
     color: #E0E0E0; /* Texto claro */
 }
 
@@ -213,5 +217,29 @@ button#exportButton {
 
 #myAreaChart {
     background-color: #0a0a0a !important; /* Fondo azul oscuro para el gráfico */
+}
+
+#dataTableContainer {
+    height: 500px;
+    width: cover;
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+#dataTableContainer.th {
+    background-color: #0a0a0a;
+    color: blue;
+}
+
+
+.low-warning td {
+    background-color: #171717 !important; /* Color verde claro para advertencias bajas */
+    color: #F5F5DC;
+}
+
+
+.table-striped th{
+    background-color: #210518 !important; /* Color verde claro para advertencias bajas */
+    color: #F5F5DC;
+
 }
 
