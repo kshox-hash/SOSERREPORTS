@@ -23,7 +23,9 @@ html(lang='en')
 
       .container
         .row
+          
           .graphic-history-section
+          
             .col-xl-12
               video#video(src='/assets/robot.mp4', width='100%', autoplay muted playsinline)
               canvas#chart(style='display: none;') // El gráfico estará oculto inicialmente
@@ -43,7 +45,7 @@ html(lang='en')
       .container
         .row
           .col-12
-            .filter-container
+            .filter-container.mt-5.mb-5
               h4 Filtrar
               p Seleccione rango de fechas
               .d-flex.align-items-center.mb-3
@@ -72,16 +74,16 @@ html(lang='en')
       .container
         .row
           .col-md-6
-            .chart-container.mt-3
+            .chart-container
               // El canvas se muestra después del video
               canvas#myAreaChart
           .col-md-6
-            .log-container#logContainer.mt-3
+            .log-container#logContainer
               h4 Datos obtenidos por consulta
               // Aquí se agregarán los resúmenes de datos
-            button.btn.btn-success.mt-3.mb-2#exportButton Convertir excel
+            button.btn.btn-success.mt-3.mb-5#exportButton Convertir excel
 
-        .row.mt-4
+        .row
           .data-table-container#dataTableContainer
 
     //- Scripts personalizados

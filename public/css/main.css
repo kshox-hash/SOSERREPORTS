@@ -60,6 +60,7 @@ h4 {
 /* Estilo específico para las secciones de ranking */
 .bodega-section, .clasificacion-section, .proveedor-section {
     background-color: #0c0c0c; /* Fondo azul oscuro */
+    margin-top: 25px;
     height: 320px;
     padding: 15px; /* Espaciado interno */
     border-radius: 8px; /* Bordes redondeados */
@@ -111,7 +112,7 @@ input[type="date"], button {
 
 /* Estilo para el botón de filtro */
 button#filterButton {
-    background-color: #263A50; /* Color azul claro */
+    background-color: #bd0cfb; /* Color azul claro */
     border: none; /* Sin borde */
     color: #F5F5DC; /* Texto color hueso */
     cursor: pointer; /* Cambia el cursor a pointer */
@@ -225,12 +226,6 @@ button#exportButton {
     overflow-y: auto; /* Permite el desplazamiento vertical */
 }
 
-#dataTableContainer.th {
-    background-color: #0a0a0a;
-    color: blue;
-}
-
-
 .low-warning td {
     background-color: #171717 !important; /* Color verde claro para advertencias bajas */
     color: #F5F5DC;
@@ -241,5 +236,36 @@ button#exportButton {
     background-color: #210518 !important; /* Color verde claro para advertencias bajas */
     color: #F5F5DC;
 
+}
+
+/* barra deslizadora
+/* Para navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra */
+}
+
+::-webkit-scrollbar-track {
+    background: #333; /* Color de fondo de la barra */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888; /* Color del thumb */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color del thumb al pasar el cursor */
+}
+
+/* Para Firefox */
+* {
+    scrollbar-width: thin; /* Barra delgada */
+    scrollbar-color: #888 #333; /* Color del thumb y del track */
+}
+
+/* Para Internet Explorer y Edge */
+.scrollable-container {
+    -ms-overflow-style: scrollbar; /* Estilo de la barra de desplazamiento */
 }
 

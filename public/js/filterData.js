@@ -364,8 +364,7 @@ document.addEventListener('DOMContentLoaded', () => {
           datasets: [{
               label: 'Datos del Gráfico', // Etiqueta para el dataset
               data: [12, 19, 3, 5, 2, 3], // Datos a mostrar
-              borderColor: 'rgba(0, 123, 255, 1)', // Color de la línea
-              backgroundColor: 'rgba(202, 160, 249, 0.2)', // Color de fondo de la línea
+              backgroundColor: 'rgba(189, 12, 251, 1)', // Color de fondo de la línea
               borderWidth: 1.5, // Grosor de la línea
               pointRadius: 0, // Establece el radio de los puntos en 0 para ocultarlos
               pointBackgroundColor: 'rgba(202, 160, 249, 1)', // Color de fondo de los puntos

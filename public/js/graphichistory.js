@@ -23,25 +23,42 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mostrar el gráfico
     chartContainer.style.display = 'block';
 
-    // Configuración del gráfico
-    const labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-    const graph = chartContainer.getContext('2d');
+  // Configuración del gráfico
+const labels = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+const graph = chartContainer.getContext('2d');
 
-    const dataGraphic = {
-      labels: labels,
-      datasets: [{
+const dataGraphic = {
+    labels: labels,
+    datasets: [{
         label: "Productos faltantes por mes",
-        data: [],
-        backgroundColor: 'rgba(58, 142, 255, 1)',
-      }]
-    };
+        data: [], 
+        backgroundColor: 'rgba(189, 12, 251, 1)',
+    }]
+};
 
-    const config = {
-      type: 'bar',
-      data: dataGraphic,
-    };
+const config = {
+    type: 'bar',
+    data: dataGraphic,
+    options: {
+        plugins: {
+            tooltip: {
+                enabled: true
+            },
+            legend: {
+                display: false
+            }
+        },
 
-    const updateChart = new Chart(graph, config);
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+};
+
+const updateChart = new Chart(graph, config);
+
 
     // Obtener los datos y actualizar el gráfico
     fetchDataToDb().then(element => {
