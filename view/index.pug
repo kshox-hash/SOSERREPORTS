@@ -69,14 +69,15 @@ html(lang='en')
                   label(for='additionalFilter', class='form-label') Filtrar por proveedor
                   select#additionalFilter.form-select
                     option(value='') Seleccione una opción
-                    option(value='ALIMENTOS VIDA ESTABLE S.A') ALIMENTOS VIDA ESTABLE S.A
-
+          
       .container
         .row
           .col-md-6
             .chart-container
               // El canvas se muestra después del video
               canvas#myAreaChart
+
+              
           .col-md-6
             .log-container#logContainer
               h4 Datos obtenidos por consulta
@@ -91,4 +92,6 @@ html(lang='en')
     script(type='module', src='/js/graphicHistory.js')
     script(type='module', src='/js/rankingHistory.js')
     script(type='module', src='/js/filterData.js')
+    script(type='module', src='/js/fetchcustomfilterdata.js')
+    
     

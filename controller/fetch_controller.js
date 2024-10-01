@@ -1,6 +1,22 @@
 const FetchDataModel = require('../model/fetchdata_model');
 const db = require('../database/firebase')
 
+
+exports.gettingCustomFiltersData = (req, res) => {
+
+ const {category}= req.body
+ const fetchDataModel = new FetchDataModel();
+ fetchDataModel.getCustomFiltersData(category)
+ .then(data => {
+
+   res.status(200).json(data)
+ })
+
+ .catch(err => res.status(400).json({ message : 'error send data', error : err}))
+
+
+}
+
 exports.fetchingData = (req, res) => {
     const fetchDataModel = new FetchDataModel();
     fetchDataModel.fecthAllData()
