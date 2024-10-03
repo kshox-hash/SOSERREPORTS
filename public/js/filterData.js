@@ -164,6 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         logHTML += `</ul>`;
         document.getElementById('logContainer').innerHTML = logHTML;
+       
     }
     let tableData = [];
     // Función para mostrar la tabla

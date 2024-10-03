@@ -28,71 +28,67 @@ exports.fetchingData = (req, res) => {
         });
 };
 
-
 exports.getDataFromDb = async (req, res) => {
-    try {
-      const { startDate, endDate, filterType, filterOption, additionalFilter  } = req.body;
+  try {
+      const { startDate, endDate, filterType, filterOption, additionalFilter } = req.body;
       console.log('Received data:', { startDate, endDate, filterType, filterOption, additionalFilter });
-      
-  
+
       let query = db.collection('reporte');
-      
+
+      // Filtrar por rango de fechas
       if (startDate && endDate) {
-        const start = new Date(startDate);
-        const end = new Date(endDate);
-  
-        // Ajustar el rango de fecha para incluir hasta el final del último día
-        end.setHours(23, 59, 59, 999);
-  
-        query = query.where('fecha', '>=', start)
-                     .where('fecha', '<=', end);
+          // Si las fechas están en formato 'yyyy-mm-dd', puedes compararlas como strings
+          query = query.where('fecha', '>=', startDate)
+                       .where('fecha', '<=', endDate);
       }
-  
+
+      // Filtrar por tipo y opción
       if (filterType && filterOption) {
-        query = query.where(filterType, '==', filterOption);
+          query = query.where(filterType, '==', filterOption);
       }
-  
+
+      // Filtrar por filtro adicional
       if (additionalFilter) {
-        query = query.where('Razon', '==', additionalFilter);
+          query = query.where('Razon', '==', additionalFilter);
       }
-      
+
       const snapshot = await query.get();
       const rawData = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-  
+
       // Agrupar los datos por fecha
       const groupedData = rawData.reduce((acc, curr) => {
-        const formattedDate = curr.fecha; // Formato de fecha legible
-  
-        if (!acc[formattedDate]) {
-          acc[formattedDate] = [];
-        }
-  
-        acc[formattedDate].push({
-          id: curr.id,
-          ...curr,
-          fecha: formattedDate // Cambiar el formato de la fecha en los datos agrupados
-        });
-  
-        return acc;
+          const formattedDate = curr.fecha; // Formato de fecha legible
+
+          if (!acc[formattedDate]) {
+              acc[formattedDate] = [];
+          }
+
+          acc[formattedDate].push({
+              id: curr.id,
+              ...curr,
+              fecha: formattedDate // Cambiar el formato de la fecha en los datos agrupados
+          });
+
+          return acc;
       }, {});
-  
+
       // Transformar los datos agrupados en el formato deseado
       const groupedDataArray = Object.entries(groupedData).map(([fecha, docs]) => ({
-        fecha,
-        documentos: docs
+          fecha,
+          documentos: docs
       }));
-  
+
       res.status(200).json({
-        data: groupedDataArray,
-        filter: {
-          filterType,
-          filterOption
-        }
+          data: groupedDataArray,
+          filter: {
+              filterType,
+              filterOption
+          }
       });
-  
-    } catch (error) {
+
+  } catch (error) {
       console.error('Error fetching data:', error);
       res.status(500).send('Error fetching data');
-    }
-  };
-  
+  }
+};
+
