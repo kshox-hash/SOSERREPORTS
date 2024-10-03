@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Capturar el valor del tercer filtro
         const additionalFilterValue = additionalFilter.value; // Asegúrate de capturar el valor correctamente
-
+     
         try {
             const response = await fetch('http://localhost:3000/getData', {
                 method: 'POST',
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     endDate,
                     filterType: filterTypeValue,
                     filterOption: filterOptionValue,
-                    additionalFilter: additionalFilterValue // Usar el nombre correcto aquí
+                    additionalFilter: additionalFilterValue // Asegúrate de usar la variable capturada
                 })
             });
 
@@ -165,9 +165,10 @@ document.addEventListener('DOMContentLoaded', () => {
         logHTML += `</ul>`;
         document.getElementById('logContainer').innerHTML = logHTML;
     }
-
+    let tableData = [];
     // Función para mostrar la tabla
     function displayTable(data) {
+        tableData = data;
         const tableContainer = document.getElementById('dataTableContainer');
         let tableHTML = `
             <table class="table table-striped table-bordered">
@@ -191,6 +192,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const documentos = item.documentos || [];
 
             documentos.forEach(documento => {
+                let fecha_hoy = new Date();
+                let fecha_formateada = new Date(documento.fecha);
+                let diferencia_ms = fecha_formateada - fecha_hoy;
+                let final_fecha = Math.floor(diferencia_ms / (1000 * 60 * 60 * 24));
+
+
                 let rowClass = 'low-warning'; // Cambiar según condiciones
 
                 tableHTML += `
@@ -201,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td>${documento.Clasificacion || 'N/A'}</td>
                         <td>${documento.Razon || 'N/A'}</td>
                         <td>${documento.ucrea || 'N/A'}</td>
-                        <td>${documento.dias_faltantes || 'N/A'}</td>
+                        <td>${final_fecha || 'N/A'}</td>
                         <td>${documento.cantidad_productos_faltantes || 'N/A'}</td>
                     </tr>
                 `;
@@ -215,7 +222,20 @@ document.addEventListener('DOMContentLoaded', () => {
     function exportToExcel() {
         const ws_data = [
             ['Fecha', 'Orden', 'Bodega', 'Clasificación', 'Razón', 'Ucrea', 'Días perdidos', 'Productos faltantes'],
-            // Aquí agregar la lógica para obtener los datos a exportar
+            ...tableData.flatMap(item => {
+                const fecha = item.fecha || 'N/A';
+                const documentos = item.documentos || [];
+                return documentos.map(doc => [
+                    fecha,
+                    doc.Orden,
+                    doc.Bodega || 'N/A',
+                    doc.Clasificacion || 'N/A',
+                    doc.Razon || 'N/A',
+                    doc.ucrea || 'N/A',
+                    doc.dias_faltantes || 'N/A',
+                    doc.cantidad_productos_faltantes  || 'N/A'
+                ]);
+            })
         ];
 
         const ws = XLSX.utils.aoa_to_sheet(ws_data);
@@ -235,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
             datasets: [{
                 label: 'Datos del Gráfico',
                 data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: 'rgba(189, 12, 251, 1)',
+                backgroundColor: 'rgba(255, 255, 204, 0.8)',
                 borderWidth: 1.5,
                 pointRadius: 0,
                 pointBackgroundColor: 'rgba(202, 160, 249, 1)',

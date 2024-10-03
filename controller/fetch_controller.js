@@ -31,8 +31,9 @@ exports.fetchingData = (req, res) => {
 
 exports.getDataFromDb = async (req, res) => {
     try {
-      const { startDate, endDate, filterType, filterOption, additionFilter  } = req.body;
-      console.log('Received data:', { startDate, endDate, filterType, filterOption, additionFilter });
+      const { startDate, endDate, filterType, filterOption, additionalFilter  } = req.body;
+      console.log('Received data:', { startDate, endDate, filterType, filterOption, additionalFilter });
+      
   
       let query = db.collection('reporte');
       
@@ -51,8 +52,8 @@ exports.getDataFromDb = async (req, res) => {
         query = query.where(filterType, '==', filterOption);
       }
   
-      if (additionFilter && additionFilter.trim() !== '') {
-        query = query.where('Razon', '==', additionFilter);
+      if (additionalFilter) {
+        query = query.where('Razon', '==', additionalFilter);
       }
       
       const snapshot = await query.get();
@@ -60,8 +61,7 @@ exports.getDataFromDb = async (req, res) => {
   
       // Agrupar los datos por fecha
       const groupedData = rawData.reduce((acc, curr) => {
-        const date = new Date(curr.fecha * 1000); // Convertir la fecha de Firestore a JavaScript Date
-        const formattedDate = date.toLocaleDateString('es-CL'); // Formato de fecha legible
+        const formattedDate = curr.fecha; // Formato de fecha legible
   
         if (!acc[formattedDate]) {
           acc[formattedDate] = [];

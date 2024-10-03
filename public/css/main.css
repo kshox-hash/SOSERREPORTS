@@ -4,7 +4,7 @@ body {
     padding: 20px;
     background-color: #0a0a0a; /* Fondo azul oscuro */
     color: #E0E0E0; /* Texto claro */
-    font-family: 'Roboto', sans-serif; /* Tipografía general */
+    font-family: 'Syne', sans-serif; /* Tipografía general */
 }
 
 /* Estilo para el encabezado */
@@ -22,7 +22,7 @@ h4 {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Syne', sans-serif; /* Tipografía general */
     margin-bottom: 20px; /* Espaciado inferior */
 
 }
@@ -45,40 +45,39 @@ h4 {
 .ranking-section {
     background-color: #171717; /* Fondo azul más claro */
     padding: 20px; /* Espaciado interno */
-    margin-bottom: 20px; /* Espaciado inferior */
+    margin-bottom: 20px;
+    margin-right: 50px;
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
     font-family: 'Roboto', sans-serif; /* Tipografía */
     min-height: 150px; /* Altura mínima */
-    text-align: center; /* Centra el texto dentro de la sección */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Roboto', sans-serif;
+
 }
 
 /* Estilo específico para las secciones de ranking */
 .bodega-section, .clasificacion-section, .proveedor-section {
-    background-color: #0c0c0c; /* Fondo azul oscuro */
+    background-color: #161616; /* Fondo azul oscuro */
     margin-top: 25px;
+    margin-right: 11px;
+    margin-left: 11px;
     height: 320px;
     padding: 15px; /* Espaciado interno */
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 2px; /* Bordes redondeados */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil */
 }
 
 .proveedor-section {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
 /* Estilo para el contenedor del filtro */
 .filter-container {
-    background-color: #210518; /* Fondo azul más claro */
+    background-color: #761f93; /* Fondo azul más claro */
     color: #E0E0E0;
     padding: 20px;
     margin-top: 20px; /* Espaciado superior */
-    border-radius: 8px; /* Bordes redondeados */
+    border-radius: 4px; /* Bordes redondeados */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave */
 }
 
@@ -91,9 +90,8 @@ h4 {
 
 /* Estilo para los selects */
 .form-select {
-    background-color: #180110; /* Fondo azul oscuro */
+    background-color: #63197c; /* Fondo azul oscuro */
     color: #E0E0E0; /* Texto claro */
-    border: 1px solid #4A4A4A; /* Borde oscuro */
     border-radius: 4px; /* Bordes redondeados */
     padding: 8px; /* Espaciado interno */
     width: 100%; /* Ancho completo */
@@ -102,9 +100,8 @@ h4 {
 
 /* Estilo para los inputs de fecha y botones */
 input[type="date"], button {
-    background-color: #180110; /* Fondo azul oscuro */
+    background-color: #63197c; /* Fondo azul oscuro */
     color: #E0E0E0; /* Texto claro */
-    border: 1px solid #4A4A4A; /* Borde oscuro */
     border-radius: 4px; /* Bordes redondeados */
     padding: 8px; /* Espaciado interno */
     width: 100%; /* Ancho completo */
@@ -112,12 +109,12 @@ input[type="date"], button {
 
 /* Estilo para el botón de filtro */
 button#filterButton {
-    background-color: #bd0cfb; /* Color azul claro */
+    background-color: #161616; /* Color azul claro */
     border: none; /* Sin borde */
     color: #F5F5DC; /* Texto color hueso */
     cursor: pointer; /* Cambia el cursor a pointer */
     padding: 10px; /* Espaciado interno */
-    border-radius: 4px; /* Bordes redondeados */
+    border-radius: 20px; /* Bordes redondeados */
 }
 
 /* Estilo para el botón de exportar */
@@ -150,7 +147,7 @@ button#exportButton {
     margin: 10px;
     padding: 20px; /* Espacio interno */
     border-radius: 4px; /* Bordes redondeados */
-    background-color: #0c0c0c; /* Fondo azul más claro */
+    background-color: #161616; /* Fondo azul más claro */
     color: #E0E0E0; /* Texto claro */
 }
 

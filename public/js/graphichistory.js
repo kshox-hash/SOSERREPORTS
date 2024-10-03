@@ -25,7 +25,7 @@
       datasets: [{
           label: "Productos faltantes por mes",
           data: [], 
-          backgroundColor: 'rgba(189, 12, 251, 1)',
+          backgroundColor: 'rgba(255, 255, 204, 0.8)',
       }]
   };
 
