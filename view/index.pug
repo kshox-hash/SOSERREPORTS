@@ -12,11 +12,12 @@ html(lang='en')
     script(type='text/javascript', src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js')
     script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js', integrity='sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz', crossorigin='anonymous')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js')
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap" rel="stylesheet">
+    link(rel='preconnect', href='https://fonts.googleapis.com')
+    link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+    link(href='https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap', rel='stylesheet')
 
   body
+  .background-body
     .container
       .row
         .title-history-section
@@ -26,23 +27,21 @@ html(lang='en')
 
       .container
         .row
-          
           .graphic-history-section
-          
             .col-xl-12
               video#video(src='/assets/robot.mp4', width='100%', autoplay muted playsinline)
               canvas#chart(style='display: none;') // El gráfico estará oculto inicialmente
 
           .col.clasificacion-section
-            h4 Ranking por clasificación
+            h4.ranking-title Ranking por ejecutivo
             #clasificacion-section
 
           .col.proveedor-section
-            h4 Ranking por proveedor
+            h4.ranking-title Ranking por proveedor
             #proveedor-section
 
           .col.bodega-section
-            h4 Ranking por bodega
+            h4.ranking-title Ranking por bodega
             #bodega-section
 
       .container
@@ -72,8 +71,7 @@ html(lang='en')
                   label(for='additionalFilter', class='form-label') Filtrar por proveedor
                   select#additionalFilter.form-select
                     option(value='') Seleccione una opción
-          
-              
+
           .col-md-12
             .log-container#logContainer
               h4 Datos obtenidos por consulta
@@ -89,5 +87,3 @@ html(lang='en')
     script(type='module', src='/js/rankingHistory.js')
     script(type='module', src='/js/filterData.js')
     script(type='module', src='/js/fetchcustomfilterdata.js')
-    
-    

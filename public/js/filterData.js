@@ -55,10 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cargar los datos al iniciar
     loadCacheData().then(() => {
-        filterOptionsMap['Bodega'] = cache['bodega'].map(item => ({ value: item.Bodega, label: item.Bodega }));
-        filterOptionsMap['Clasificacion'] = cache['clasificacion'].map(item => ({ value: item.Clasificacion, label: item.Clasificacion }));
-        filterOptionsMap['Razon'] = cache['razon'].map(item => ({ value: item.Razon, label: item.Razon }));
-        filterOptionsMap['ucrea'] = cache['ucrea'].map(item => ({ value: item.ucrea, label: item.ucrea }));
+        filterOptionsMap['Bodega'] = cache['bodega'].map(item => ({ value: item.Bodega, label: item.Bodega }))
+            .sort((a,b) => a.label.localeCompare(b.label))
+        filterOptionsMap['Clasificacion'] = cache['clasificacion'].map(item => ({ value: item.Clasificacion, label: item.Clasificacion }))
+            .sort((a,b) => a.label.localeCompare(b.label))
+        filterOptionsMap['Razon'] = cache['razon'].map(item => ({ value: item.Razon, label: item.Razon }))
+             .sort((a,b) => a.label.localeCompare(b.label))
+        filterOptionsMap['ucrea'] = cache['ucrea'].map(item => ({ value: item.ucrea, label: item.ucrea }))
+            .sort((a,b) => a.label.localeCompare(b.label))
     });
 
     // Cambiar opciones del filtro según el tipo seleccionado
@@ -171,6 +175,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayTable(data) {
         tableData = data;
         const tableContainer = document.getElementById('dataTableContainer');
+
+        tableData.forEach(item => {
+            item.documentos.sort((a,b) => (a.Razon || '').localeCompare(b.Razon || '' ))
+        })
         let tableHTML = `
             <table class="table table-striped table-bordered">
                 <thead>
@@ -226,6 +234,13 @@ document.addEventListener('DOMContentLoaded', () => {
             ...tableData.flatMap(item => {
                 const fecha = item.fecha || 'N/A';
                 const documentos = item.documentos || [];
+
+                let fecha_hoy = new Date();
+                let fecha_formateada = new Date(item.fecha);
+                let diferencia_ms = fecha_formateada - fecha_hoy;
+                let final_fecha = Math.floor(diferencia_ms / (1000 * 60 * 60 * 24));
+
+
                 return documentos.map(doc => [
                     fecha,
                     doc.Orden,
@@ -233,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     doc.Clasificacion || 'N/A',
                     doc.Razon || 'N/A',
                     doc.ucrea || 'N/A',
-                    doc.dias_faltantes || 'N/A',
+                    final_fecha|| 'N/A',
                     doc.cantidad_productos_faltantes  || 'N/A'
                 ]);
             })

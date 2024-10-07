@@ -1,157 +1,156 @@
-/* Estilo general del body */
+
 body {
     margin: 0;
     padding: 20px;
-    background-color: #0a0a0a; /* Fondo azul oscuro */
-    color: #E0E0E0; /* Texto claro */
-    font-family: 'Syne', sans-serif; /* Tipografía general */
+    background-color: #000000; 
+    color: #E0E0E0; 
+    font-family: 'Syne', sans-serif; 
+}
+.background-body {
+
+    background : linear-gradient(135deg, rgba(39, 39, 39, 0.1), rgba(39, 39, 39, 0.1));
+    backdrop-filter: blur(15px); 
+    border-radius: 40px;
+    margin: 70px 100px 70px 100px;
+
 }
 
-/* Estilo para el encabezado */
 h4 {
     font-family: 'Roboto', sans-serif;
-    color: #F5F5DC; /* Color hueso para el encabezado */
+    color: white
 }
 
-/* Estilo para la sección de título */
 .title-history-section {
-    background-color: #0a0a0a; /* Fondo azul más claro */
+    color: white;
     height: 120px;
-    color: #F5F5DC; /* Texto color hueso */
+    margin-bottom: 20px; 
+    margin-top: 30px;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Syne', sans-serif; /* Tipografía general */
-    margin-bottom: 20px; /* Espaciado inferior */
-
+    font-family: 'Syne', sans-serif; 
+    
 }
 
-/* Estilo para la sección de gráficos */
 .graphic-history-section {
-    background-color: #0a0a0a; /* Fondo azul oscuro */
     padding-top: 20px;
-    margin-bottom: 20px; /* Espaciado inferior */
-    color: #E0E0E0; /* Texto claro */
+    margin-bottom: 20px; 
+    color: white; 
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: 'Roboto', sans-serif;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+   
 }
 
-/* Estilo para las secciones de ranking */
-.ranking-section {
-    background-color: #171717; /* Fondo azul más claro */
-    padding: 20px; /* Espaciado interno */
-    margin-bottom: 20px;
-    margin-right: 50px;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
-    font-family: 'Roboto', sans-serif; /* Tipografía */
-    min-height: 150px; /* Altura mínima */
-
-}
-
-/* Estilo específico para las secciones de ranking */
 .bodega-section, .clasificacion-section, .proveedor-section {
-    background-color: #161616; /* Fondo azul oscuro */
+    background-color:rgba(39, 39, 39, 0.1) ;
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
     margin-top: 25px;
-    margin-right: 11px;
-    margin-left: 11px;
+    margin-right: 10px;
+    margin-left: 10px;
     height: 320px;
-    padding: 15px; /* Espaciado interno */
-    border-radius: 2px; /* Bordes redondeados */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    padding: 15px; 
+   
 }
 
 .proveedor-section {
-    margin-left: 12px;
-    margin-right: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-/* Estilo para el contenedor del filtro */
 .filter-container {
-    background-color: #761f93; /* Fondo azul más claro */
-    color: #E0E0E0;
+    background-color:rgba(39, 39, 39, 0.1) ;
+    backdrop-filter: blur(15px); 
+    color: white;
     padding: 20px;
-    margin-top: 20px; /* Espaciado superior */
-    border-radius: 4px; /* Bordes redondeados */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    margin-top: 20px; 
+    border-radius: 15px; 
+  
 }
 
-/* Estilo para el formulario del filtro */
+
 #filterForm .form-label {
-    color: #F5F5DC !important; /* Color hueso para las etiquetas */
+    color: white !important; 
     font-family: 'Roboto', sans-serif;
-    margin-bottom: 0.5rem; /* Espaciado inferior */
+    margin-bottom: 0.5rem; 
 }
 
-/* Estilo para los selects */
+
 .form-select {
-    background-color: #63197c; /* Fondo azul oscuro */
-    color: #E0E0E0; /* Texto claro */
-    border-radius: 4px; /* Bordes redondeados */
-    padding: 8px; /* Espaciado interno */
-    width: 100%; /* Ancho completo */
-    margin-bottom: 1rem; /* Espaciado inferior */
+    background-color:rgba(39, 39, 39, 0.1) ;
+    color: white;
+    backdrop-filter: blur(15px);
+    border-radius: 4px; 
+    padding: 8px; 
+    width: 100%; 
+    margin-bottom: 1rem; 
 }
 
-/* Estilo para los inputs de fecha y botones */
+
+.form-select option {
+    background-color: rgba(7, 7, 7, 1); 
+    color: white; 
+}
+
+
 input[type="date"], button {
-    background-color: #63197c; /* Fondo azul oscuro */
-    color: #E0E0E0; /* Texto claro */
-    border-radius: 4px; /* Bordes redondeados */
-    padding: 8px; /* Espaciado interno */
-    width: 100%; /* Ancho completo */
+    background-color:rgba(39, 39, 39, 0.1) ;
+    color: white;
+    backdrop-filter: blur(15px);
+    border-radius: 4px; 
+    padding: 8px; 
+    width: 100%; 
 }
 
-/* Estilo para el botón de filtro */
+
 button#filterButton {
-    background-color: #161616; /* Color azul claro */
-    border: none; /* Sin borde */
-    color: #F5F5DC; /* Texto color hueso */
-    cursor: pointer; /* Cambia el cursor a pointer */
-    padding: 10px; /* Espaciado interno */
-    border-radius: 20px; /* Bordes redondeados */
+    background-color: #0d6efd; 
+    border: none; 
+    color: white; 
+    cursor: pointer; 
+    padding: 10px; 
+    border-radius: 20px; 
 }
 
-/* Estilo para el botón de exportar */
+
 button#exportButton {
-    border: none; /* Sin borde */
-    color: #F5F5DC; /* Texto color hueso */
-    cursor: pointer; /* Cambia el cursor a pointer */
-    padding: 10px; /* Espaciado interno */
-    border-radius: 4px; /* Bordes redondeados */
+    border: none; 
+    color: white;
+    cursor: pointer; 
+    padding: 10px;
+    border-radius: 4px; 
 }
 
-/* Estilo para las listas */
+
 .list-group {
-    background-color: #171717; /* Fondo azul oscuro */
-    border: none; /* Elimina el borde de la lista */
+    background-color:rgba(39, 39, 39, 0.1) ;
+    border: none; 
 }
 
-/* Estilo para los elementos de la lista */
+
 .list-group-item {
-    background-color: #171717; /* Fondo azul oscuro */
-    padding: 10px; /* Espaciado interno */
-    color: #E0E0E0; /* Color de texto claro */
+    background-color:rgba(39, 39, 39, 0.1) ;
+    padding: 10px;      
+    color: white;
 }
 
-/* Estilo para el contenedor del log */
+
 #logContainer {
-    max-height: 400px; /* Ajusta según tus necesidades */
+    background-color:rgba(39, 39, 39, 0.1) ;
+    backdrop-filter: blur(15px); 
+    padding: 20px; 
+    border-radius: 15px; 
+    max-height: 400px; 
     height: 320px;
-    overflow-y: auto; /* Permite el desplazamiento vertical */
-    margin: 10px;
-    padding: 20px; /* Espacio interno */
-    border-radius: 4px; /* Bordes redondeados */
-    background-color: #161616; /* Fondo azul más claro */
-    color: #E0E0E0; /* Texto claro */
+    overflow-y: auto; 
+
 }
 
-/* Otros estilos adicionales */
+
 .custom-hr {
     border: 0;
     height: 1px;
@@ -174,14 +173,14 @@ button#exportButton {
 .ranking-title {
     font-size: 20px;
     font-weight: bold;
-    color: #F5F5DC; /* Texto color hueso para el título del ranking */
+    color: white; /* Texto color hueso para el título del ranking */
     margin-bottom: 10px;
     text-align: center; /* Centra el texto del título del ranking */
 }
 
 .ranking-item {
     font-size: 16px;
-    color: #B0B0B0; /* Color gris claro para los elementos de ranking */
+    color: black;
     margin-bottom: 5px;
 }
 
@@ -228,14 +227,12 @@ button#exportButton {
     color: #F5F5DC;
 }
 
-
-.table-striped th{
+.table-striped th {
     background-color: #761f93 !important; /* Color verde claro para advertencias bajas */
     color: #F5F5DC;
-
 }
 
-/* barra deslizadora
+/* barra deslizadora */
 /* Para navegadores WebKit (Chrome, Safari) */
 ::-webkit-scrollbar {
     width: 12px; /* Ancho de la barra */
@@ -265,4 +262,3 @@ button#exportButton {
 .scrollable-container {
     -ms-overflow-style: scrollbar; /* Estilo de la barra de desplazamiento */
 }
-

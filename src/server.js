@@ -21,7 +21,7 @@ app.use(routes)
 
 
 app.listen(port, () => {
-    console.log(`Server up in ${port}`);
+    console.log(`build by el futuro es ahora company`);
 
 
     // Abre automáticamente el navegador en localhost:3000
